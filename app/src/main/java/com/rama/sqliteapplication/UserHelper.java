@@ -19,7 +19,7 @@ public class UserHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create Table MyTable(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,Name Text,ClassName Text)");
+        db.execSQL("Create Table MyTable(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,Name Text,ClassName Text, Time Text)");
         Toast.makeText(context, "SQL Started", Toast.LENGTH_SHORT).show();
 
     }
@@ -29,11 +29,12 @@ public class UserHelper extends SQLiteOpenHelper {
 
     }
 
-    public long createMethod(SQLiteDatabase db,String name,String className)
+    public long createMethod(SQLiteDatabase db,String name,String className, String Time)
     {
         ContentValues cv=new ContentValues();
         cv.put("Name",name);
         cv.put("ClassName",className);
+        cv.put("Time", Time);
 
         long set=db.insert("MyTable",null,cv);
         return set;

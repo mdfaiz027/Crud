@@ -37,8 +37,9 @@ public class ViewActivity extends AppCompatActivity {
 
         myModelArrayList.clear();
 
-        String[] col = {"Name", "ClassName"};
-        cursor = db.query("MyTable",col, null,null,null,null,null);
+        String[] col = {"Name", "ClassName", "Time"};
+        String sortOrder = "Time" + " DESC";
+        cursor = db.query("MyTable",col, null,null,null,null,sortOrder);
 
         if(cursor.getCount()>0 && cursor!=null)
         {
