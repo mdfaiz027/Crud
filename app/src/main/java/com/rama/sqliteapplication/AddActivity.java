@@ -21,7 +21,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sql_lite);
+        setContentView(R.layout.activity_add);
 
         name=findViewById(R.id.name);
         className =findViewById(R.id.className);
@@ -36,17 +36,26 @@ public class AddActivity extends AppCompatActivity {
         classNameStr = className.getText().toString();
         String time = getTime();
 
-        long set=userHelper.createMethod(db,namestr, classNameStr, time);
+        if(namestr.trim().equals("")){
 
-        //Toast.makeText(this, ""+set, Toast.LENGTH_SHORT).show();
+            name.setError("Enter the name!");
 
-        if (set==-1)
-        {
-            Toast.makeText(this, "Record Already Exist", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(this, "New Record Created", Toast.LENGTH_SHORT).show();
+        }else if(classNameStr.trim().equals("")){
+
+            className.setError("Enter the class name!");
+
+        }else{
+
+            long set=userHelper.createMethod(db,namestr, classNameStr, time);
+
+            if (set==-1)
+            {
+                Toast.makeText(this, "Record Already Exist", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "New Record Created", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -55,5 +64,4 @@ public class AddActivity extends AppCompatActivity {
         Date date = new Date();
         return dateFormat.format(date);
     }
-
 }

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends BaseAdapter {
@@ -20,7 +19,6 @@ public class MyAdapter extends BaseAdapter {
         this.context = context;
         this.myModelArrayList = myModelArrayList;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
     }
 
     @Override
