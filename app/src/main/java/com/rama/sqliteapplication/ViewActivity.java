@@ -38,24 +38,22 @@ public class ViewActivity extends AppCompatActivity {
 
         String[] col = {"Name", "ClassName", "ImagePath", "VideoPath", "Time"};
         String sortOrder = "Time" + " DESC";
-        cursor = db.query("MyTable",col, null,null,null,null,sortOrder);
+        cursor = db.query("MyTable", col, null, null, null, null, sortOrder);
 
-        if(cursor.getCount()>0 && cursor!=null)
-        {
-            while (cursor.moveToNext()){
+        if (cursor.getCount() > 0 && cursor != null) {
+            while (cursor.moveToNext()) {
 
                 @SuppressLint("Range") String nameStr = cursor.getString(cursor.getColumnIndex("Name"));
                 @SuppressLint("Range") String classNameStr = cursor.getString(cursor.getColumnIndex("ClassName"));
                 @SuppressLint("Range") String imagePathStr = cursor.getString(cursor.getColumnIndex("ImagePath"));
                 @SuppressLint("Range") String videoPathStr = cursor.getString(cursor.getColumnIndex("VideoPath"));
 
-                myModel = new MyModel(""+nameStr, ""+classNameStr, ""+imagePathStr, ""+videoPathStr);
+                myModel = new MyModel("" + nameStr, "" + classNameStr, "" + imagePathStr, "" + videoPathStr);
                 myModelArrayList.add(myModel);
                 myAdapter = new MyAdapter(getApplicationContext(), myModelArrayList);
                 listView.setAdapter(myAdapter);
             }
-        }
-        else{
+        } else {
             Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
         }
 

@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:onClick="add"
+        android:id="@+id/addBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -16,7 +16,7 @@
         android:text="Add"/>
 
     <Button
-        android:onClick="view"
+        android:id="@+id/viewBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -24,7 +24,7 @@
         android:text="View"/>
 
     <Button
-        android:onClick="sync"
+        android:id="@+id/syncBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

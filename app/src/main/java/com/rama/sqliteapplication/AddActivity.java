@@ -38,6 +38,7 @@ public class AddActivity extends AppCompatActivity {
 
         userHelper=new UserHelper(this);
         db=userHelper.getWritableDatabase();
+
     }
 
     public void save(View view) {
@@ -77,10 +78,10 @@ public class AddActivity extends AppCompatActivity {
     }
 
     public void uploadImage(View view) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 202);
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, 202);
     }
 
     public void uploadVideo(View view) {

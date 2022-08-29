@@ -20,27 +20,36 @@
         android:id="@+id/className"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="5dp"
         android:textSize="18sp"
         android:text="Class name"
         android:padding="5dp"
         android:textColor="@color/black"/>
 
-    <TextView
+<!--    <TextView-->
+<!--        android:id="@+id/imagePath"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:text="Image path"-->
+<!--        android:padding="5dp"-->
+<!--        android:textColor="@color/black"/>-->
+
+    <ImageView
         android:id="@+id/imagePath"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:text="Image path"
-        android:padding="5dp"
-        android:textColor="@color/black"/>
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_gravity="center"/>
+
 
     <TextView
         android:id="@+id/videoPath"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:text="Video path"
         android:padding="5dp"
