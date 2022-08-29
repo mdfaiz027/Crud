@@ -1,14 +1,13 @@
 package com.rama.sqliteapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class ViewActivity extends AppCompatActivity {
 
         myModelArrayList.clear();
 
-        String[] col = {"Name", "ClassName", "Time"};
+        String[] col = {"Name", "ClassName", "ImagePath", "VideoPath", "Time"};
         String sortOrder = "Time" + " DESC";
         cursor = db.query("MyTable",col, null,null,null,null,sortOrder);
 
@@ -47,8 +46,10 @@ public class ViewActivity extends AppCompatActivity {
 
                 @SuppressLint("Range") String nameStr = cursor.getString(cursor.getColumnIndex("Name"));
                 @SuppressLint("Range") String classNameStr = cursor.getString(cursor.getColumnIndex("ClassName"));
+                @SuppressLint("Range") String imagePathStr = cursor.getString(cursor.getColumnIndex("ImagePath"));
+                @SuppressLint("Range") String videoPathStr = cursor.getString(cursor.getColumnIndex("VideoPath"));
 
-                myModel = new MyModel(""+nameStr, ""+classNameStr);
+                myModel = new MyModel(""+nameStr, ""+classNameStr, ""+imagePathStr, ""+videoPathStr);
                 myModelArrayList.add(myModel);
                 myAdapter = new MyAdapter(getApplicationContext(), myModelArrayList);
                 listView.setAdapter(myAdapter);

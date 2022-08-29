@@ -43,9 +43,13 @@ public class MyAdapter extends BaseAdapter {
 
         TextView name = root.findViewById(R.id.name);
         TextView className = root.findViewById(R.id.className);
+        TextView imagePath = root.findViewById(R.id.imagePath);
+        TextView videoPath = root.findViewById(R.id.videoPath);
 
         name.setText(""+myModelArrayList.get(i).getName());
         className.setText(""+myModelArrayList.get(i).getClassName());
+        imagePath.setText(""+myModelArrayList.get(i).getImagePath());
+        videoPath.setText(""+myModelArrayList.get(i).getVideoPath());
 
         return root;
     }

@@ -13,27 +13,31 @@ public class UserHelper extends SQLiteOpenHelper {
     Context context;
 
     public UserHelper(@Nullable Context context) {
-        super(context,DATA_BASENAME, null, 2);
+        super(context,DATA_BASENAME, null, 1);
         this.context=context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create Table MyTable(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,Name Text,ClassName Text, Time Text)");
+        db.execSQL("Create Table MyTable(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,Name Text,ClassName Text,ImagePath Text, VideoPath Text, Time Text)");
         Toast.makeText(context, "SQL Started", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        if (oldVersion < newVersion) {
+            //
+        }
     }
 
-    public long createMethod(SQLiteDatabase db,String name,String className, String Time)
+    public long createMethod(SQLiteDatabase db, String name, String className, String imagePath, String videoPath, String Time)
     {
         ContentValues cv=new ContentValues();
         cv.put("Name",name);
         cv.put("ClassName",className);
+        cv.put("ImagePath",imagePath);
+        cv.put("VideoPath",videoPath);
         cv.put("Time", Time);
 
         long set=db.insert("MyTable",null,cv);
