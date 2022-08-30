@@ -4,10 +4,11 @@ import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +18,11 @@ public class ViewActivity extends AppCompatActivity {
     SQLiteDatabase db;
 
     Cursor cursor;
-    ListView listView;
+    RecyclerView recyclerView;
     UserHelper userHelper;
 
     MyModel myModel;
-    MyAdapter myAdapter;
+    MyRvAdapter myAdapter;
     List<MyModel> myModelArrayList = new ArrayList<>();
 
     @Override
@@ -29,7 +30,7 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
-        listView = findViewById(R.id.list);
+        recyclerView = findViewById(R.id.list);
 
         userHelper = new UserHelper(this);
         db = userHelper.getWritableDatabase();
@@ -48,10 +49,11 @@ public class ViewActivity extends AppCompatActivity {
                 @SuppressLint("Range") String imagePathStr = cursor.getString(cursor.getColumnIndex("ImagePath"));
                 @SuppressLint("Range") String videoPathStr = cursor.getString(cursor.getColumnIndex("VideoPath"));
 
-                myModel = new MyModel("" + nameStr, "" + classNameStr, "" + imagePathStr, "" + videoPathStr);
-                myModelArrayList.add(myModel);
-                myAdapter = new MyAdapter(getApplicationContext(), myModelArrayList);
-                listView.setAdapter(myAdapter);
+                //myModel = new MyModel("" + nameStr, "" + classNameStr, "" + imagePathStr, "" + videoPathStr);
+                myModelArrayList.add(new MyModel(nameStr, classNameStr, imagePathStr, videoPathStr));
+                myAdapter = new MyRvAdapter(this, myModelArrayList);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                recyclerView.setAdapter(myAdapter);
             }
         } else {
             Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();

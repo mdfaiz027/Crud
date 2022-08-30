@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/border">
 
     <TextView
@@ -38,21 +39,30 @@
 
     <ImageView
         android:id="@+id/imagePath"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/ic_launcher_background"
         android:layout_gravity="center"/>
 
 
-    <TextView
+<!--    <TextView-->
+<!--        android:id="@+id/videoPath"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:text="Video path"-->
+<!--        android:padding="5dp"-->
+<!--        android:textColor="@color/black"/>-->
+
+    <VideoView
         android:id="@+id/videoPath"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:text="Video path"
-        android:padding="5dp"
-        android:textColor="@color/black"/>
+        android:layout_height="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>
